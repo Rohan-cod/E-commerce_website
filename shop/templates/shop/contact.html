@@ -1,0 +1,63 @@
+{% extends "shop/basic.html" %}
+
+{% block title %} Contact Us {% endblock %}
+
+{% block body %}
+<style>
+    #area{
+        display:none;
+    }
+    #alrt{
+      display:none;
+    }
+</style>
+
+<div class="container col-md-8">
+
+    <h1>Contact Us</h1>
+<form action="contact" method="POST">{% csrf_token %}
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Enter Name:</label>
+        <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Enter Your Name" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Enter email:</label>
+        <input type="email" name="email" class="form-control" id="exampleFormControlInput2" placeholder="Email Address" required>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Enter phone:</label>
+        <input type="tel" name="phone" class="form-control" id="exampleFormControlInput3" placeholder="Phone Number" required>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Select Query:</label>
+      <select name="selection" onclick="show()" class="form-control" id="exampleFormControlSelect1" required>
+        <option selected disabled>Choose Problem</option>
+        <option>Problem 1</option>
+        <option>Problem 2</option>
+        <option>Problem 3</option>
+        <option>Problem 4</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div id="area">
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Describe Your Issue:</label>
+      <textarea name="desc" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write Here" resize="none" required></textarea>
+    </div>
+</div>
+<button type="submit" class="btn btn-primary mt-1" onclick="msg()">Submit</button>
+  </form>
+</div>
+
+<script>
+function show(){
+  //   document.write("Working");
+    document.getElementById("area").style.display="contents";
+}
+
+// function msg(){
+//   alert("Your request has been processed! Please wait for reply.")
+// }
+</script>
+
+{% endblock %}
