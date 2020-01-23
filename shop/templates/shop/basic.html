@@ -2,127 +2,133 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>{% block title %} {% endblock %}</title>
+  <title>{% block title %} {% endblock %}</title>
 </head>
 
 <style>
-     body{
+  body {
     background-color: whitesmoke;
   }
 </style>
 
 <body>
-    {% load static %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
-        <a class="navbar-brand" href="/" style=color:gold>apnidukaan.in</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="http://127.0.0.1:8000/shop/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/shop/about">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="http://127.0.0.1:8000/blog" >Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://127.0.0.1:8000/shop/contact">Contact Us</a>
-                 </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/shop/cart" data-toggle="tooltip" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+  {% load static %}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/" style=color:gold>apnidukaan.in</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="http://127.0.0.1:8000/shop/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/shop/about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="http://127.0.0.1:8000/blog">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/shop/contact">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shop/cart" data-toggle="tooltip" data-container="body" data-toggle="popover"
+            data-placement="bottom" data-content="Vivamus
                 sagittis lacus vel augue laoreet rutrum faucibus.">
-                        Cart(<span id="itemcount">0</span>)
-                </a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form>
-        </div>
-        {% if user.is_authenticated %}
-        
-        <li class="nav-item" style=color:white;><i>Hello, {{ user.username }}</i></li>
-        <li class="nav-item" style=list-style-type:none>
-            <a class="nav-link float-right" href="/shop/logout"><button type="button" class="btn btn-outline-primary">Sign Out</button></a>
+            Cart(<span id="itemcount">0</span>)
+          </a>
         </li>
-        {% else %}
-        <li class="nav-item" style=list-style-type:none>
-            <a class="nav-link float-right" href="/shop/login"><button type="button" class="btn btn-outline-primary">Sign in</button></a>
-        </li>
-        {% endif %}
-    </nav>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+    {% if user.is_authenticated %}
 
-    {% block body %} {% endblock %}
+    <li class="nav-item" style=color:white;><i>Hello, {{ user.username }}</i></li>
+    <li class="nav-item" style=list-style-type:none>
+      <a class="nav-link float-right" href="/shop/logout"><button type="button" class="btn btn-outline-primary">Sign
+          Out</button></a>
+    </li>
+    {% else %}
+    <li class="nav-item" style=list-style-type:none>
+      <a class="nav-link float-right" href="/shop/login"><button type="button" class="btn btn-outline-primary">Sign
+          in</button></a>
+    </li>
+    {% endif %}
+  </nav>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>  
+  {% block body %} {% endblock %}
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 </body>
 
 
 <script>
-    var l=0;
-    // localStorage.clear(cart)
-    // console.log("Welcome");
-    if(localStorage.getItem('cart')==null)
-      {
-       var cart={};
-       
-      }
-    else
-      {
-        cart = JSON.parse(localStorage.getItem('cart'));
-        for(key in cart)
-        {
-          l=l+cart[key];
-        }
-      }
-      document.getElementById("itemcount").innerHTML=l;
-    function addr(btid)
-    {
-      idstr=btid.toString();
-    // console.log(idstr);
-    if(cart[idstr] != undefined)
-    {
-      cart[idstr]=cart[idstr]+1;
-      l=l+1;
-    }
-    else
-    {
-      cart[idstr]=1;
-      l=l+1;
-    }
-    // console.log(cart);
-    // console.log(l);
-    console.log(btid)
-    localStorage.setItem('cart',JSON.stringify(cart));
-    // console.log(cart);
-    document.getElementById("itemcount").innerHTML=l;
-    }
-    </script>
+  var l = 0;
+  if (localStorage.getItem('cart') == null) {
+    var cart = {};
+    var cartvalue = {};
 
-{% block js %}  {% endblock %}
+  }
+  else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    cartvalue = JSON.parse(localStorage.getItem('cartvalue'));
+
+    for (key in cart) {
+      l = l + cart[key];
+    }
+  }
+  document.getElementById("itemcount").innerHTML = l;
+  function addr(btid) {
+    var arr = []
+    ptnode = document.getElementById(btid).parentNode.parentNode;
+    len = document.getElementById(btid).parentNode.parentNode.children[1].children.length;
+    insrc = ptnode.children[0].children[0].src;
+    arr[0] = insrc;
+    for (i = 0; i < len - 1; i++) {
+      inhtml = ptnode.children[1].children[i].innerHTML;
+      arr[i + 1] = inhtml;
+    }
+    idstr = btid.toString();
+    if (cart[idstr] != undefined) {
+      cart[idstr] = cart[idstr] + 1;
+      l = l + 1;
+    }
+    else {
+      cartvalue[idstr] = arr
+      arr = []
+      cart[idstr] = 1;
+      l = l + 1;
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cartvalue', JSON.stringify(cartvalue));
+
+    document.getElementById("itemcount").innerHTML = l;
+  }
+</script>
+
+{% block js %} {% endblock %}
 
 </html>

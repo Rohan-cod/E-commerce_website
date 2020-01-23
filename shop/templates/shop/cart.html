@@ -82,46 +82,44 @@
 {% block js %}
 
 <script>
-
+    var cartvalue = JSON.parse(localStorage.getItem('cartvalue'));
     document.getElementById('itemtotal').innerHTML = Object.keys(cart).length;
+    var ttlprc=0
     len = Object.keys(cart).length;
-    console.log(cart);
-    for (keys in cart) {
-        console.log(keys);
-        console.log(typeof (keys));
-        // console.log(document.)
+    
+    for (key in cart) {
+        ttlprc = ttlprc + Number(cartvalue[key][3])
+        html = ` <div class="row">
+        <div class="col-md-2">
+            <img src="${cartvalue[key][0]}" width=125 height=125>
+        </div>
+        <div class="col-md-7">
+            <h5>${cartvalue[key][1]}</h5>
+            <p>${cartvalue[key][2]}</p>
+            <a href="#" style=font-size:15px>Delete</a>
+       </div>
+       <div class="col-md-2">
+           <h5>${cartvalue[key][3]}</h5>
+       </div>
+       <div class="dropdown col-md-1">
+            <select class="btn btn-light btn-sm" id="qnty">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            </select>
+        </div>
+    </div>
+    <hr>`;
+        document.getElementById('main_div').innerHTML += html;
     }
-
-    //     for(i=0;i<len;i++)
-    //     {
-    //         html =` <div class="row">
-    //     <div class="col-md-2">
-    //         <img src="#">
-    //     </div>
-    //     <div class="col-md-7">
-    //         <h5>Title</h5>
-    //         <p>description</p>
-    //         <a href="#" style=font-size:15px>Delete</a>
-    //    </div>
-    //    <div class="col-md-2">
-    //        <h5>Price</h5>
-    //    </div>
-    //    <div class="dropdown col-md-1">
-    //         <select class="btn btn-light btn-sm" id="qnty">
-    //         <option>1</option>
-    //         <option>2</option>
-    //         <option>3</option>
-    //         <option>4</option>
-    //         </select>
-    //     </div>
-    // </div>
-    // <hr>`;
-    //     document.getElementById('main_div').innerHTML+=html;
-    //         // document.getElementById("qnty").selectedIndex=cart[keys]-1;
-    //         console.log(i);
-    //         // console.log(document.getElementById((keys)));
-    //     }
-
+    document.getElementById('totalprice').innerHTML = ttlprc;
 
 </script>
 
