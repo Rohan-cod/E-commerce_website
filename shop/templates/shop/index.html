@@ -78,7 +78,7 @@
         {% for prd in product|slice:"0:" %}
         <div class="col-xs-3 col-sm-3 col-md-3">
           <div class="card">
-            <a href="/shop/product/{{prd.id}}"> <img src='/media/{{prd.image}}' class="card-img-top"
+            <a href="/shop/product/{{prd.id}}"> <img src="{{ prd.image.url}}" class="card-img-top"
                 alt="{{prd.product_name}}" title="{{prd.brief_desc}}"></a>
             <div class="card-body">
               <h5 class="card-title">{{prd.product_name}}</h5>

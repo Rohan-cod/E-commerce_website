@@ -6,6 +6,11 @@ from math import ceil
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy # new
+
+from .forms import PostForm
+
 # Create your views here.
 def index(request):
     prod=Product.objects.all()
@@ -97,3 +102,10 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+class ProductNewView(CreateView):
+    model = Product
+    template_name = 'shop/product_new.html'
+    form_class = PostForm
+    success_url = reverse_lazy('index')
