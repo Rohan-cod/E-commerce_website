@@ -88,7 +88,7 @@
     len = Object.keys(cart).length;
     
     for (key in cart) {
-        ttlprc = ttlprc + Number(cartvalue[key][3].slice(3))
+        ttlprc = ttlprc + cart[key]*Number(cartvalue[key][3].slice(3))
         html = ` <div class="row">
         <div class="col-md-2">
             <img src="${cartvalue[key][0]}" width=125 height=125>
