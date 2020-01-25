@@ -87,16 +87,22 @@
     var ttlprc=0
     len = Object.keys(cart).length;
     
-    for (key in cart) {
-        ttlprc = ttlprc + cart[key]*Number(cartvalue[key][3].slice(3))
-        html = ` <div class="row">
+    if (Object.keys(cart).length == 0) {
+        html = `<h3>Sorry! Cart is empty</h3>
+        <a class="nav-link float-right" href="/shop"><button type="button" class="btn btn-primary">Shop Now</button></a>`
+        document.getElementById('x').innerHTML = html;
+    }
+    else {
+        for (key in cart) {
+            ttlprc = ttlprc + cart[key] * (Number(cartvalue[key][3].slice(3)))
+            html = ` <div class="row">
         <div class="col-md-2">
             <img src="${cartvalue[key][0]}" width=125 height=125>
         </div>
         <div class="col-md-7">
             <h5>${cartvalue[key][1]}</h5>
             <p>${cartvalue[key][2]}</p>
-            <a href="#" style=font-size:15px>Delete</a>
+            <a href="#" style=font-size:15px>Remove</a>
        </div>
        <div class="col-md-2">
            <h5>${cartvalue[key][3]}</h5>
@@ -117,10 +123,10 @@
         </div>
     </div>
     <hr>`;
-        document.getElementById('main_div').innerHTML += html;
-    }
+            document.getElementById('main_div').innerHTML += html;
+        }
     document.getElementById('totalprice').innerHTML = ttlprc;
-
+    }
 </script>
 
 {% endblock %}
