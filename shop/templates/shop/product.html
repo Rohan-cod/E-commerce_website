@@ -14,10 +14,10 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-md-4 ">
-            <img src="/media/{{ product.image }}"></img>
+            <a href="/shop/product/{{product.id}}"><img src="/media/{{ product.image }}"></img></a>
             <div>
-                <button id="bt{{prd.id}}" class="btn btn-primary mt-3" onclick="addr(this.id)">Add to Cart</button>
-                <button id="bt{{prd.id}}" class="btn btn-primary mt-3 ml-3">Buy Now</button>
+                <button id="bt{{product.id}}" class="btn btn-primary mt-3" onclick="addr(this.id)">Add to Cart</button>
+                <button id="bt{{product.id}}" class="btn btn-primary mt-3 ml-3">Buy Now</button>
             </div>
             <!-- <p>{{ product.brief_desc }}</p> -->
         </div>
