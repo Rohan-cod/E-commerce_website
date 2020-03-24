@@ -1,6 +1,11 @@
 # E-commerce_website
 An E-commerce website made using the Django framework.
 
+## Major Contributors
+  * [@Rohan-cod](https://github.com/Rohan-cod)
+  * [@shubhdeeprajput](https://github.com/shubhdeeprajput)
+
+
 ## Requirements
 
 Python 3.7  
