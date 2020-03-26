@@ -28,7 +28,7 @@ And additional requirements are in **Pipfile**.
   * Run the server `$ python manage.py runserver`
   
 ## Deployment
-The notes app has been deployed in production using heroku. Here's a list of steps to be followed for deploying an app to heroku:
+Here's a list of steps to be followed for deploying an app to heroku:
 
   * Run pipenv lock to generate the appropriate Pipfile.lock `$ pipenv lock`
   * Then create a Procfile which tells Heroku how to run the remote server where our code will live. `$ touch Procfile`
